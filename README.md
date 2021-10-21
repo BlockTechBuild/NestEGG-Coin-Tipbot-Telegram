@@ -1,4 +1,4 @@
-## PandaTip - NestEgg coin tipbot for Telegram
+## NestEGG-TipBot - NestEgg coin tipbot for Telegram
  
 ### Dependencies 
 
@@ -18,8 +18,8 @@ Create a `config.json` **JSON** file and set up the following parameters:
 (sample)
  
     {
-    	"telegram-token": "such:sicret-token",
-    	"telegram-botname": "PandaTip",
+    	"telegram-token": "xhskri736hg",
+    	"telegram-botname": "NestEGGTip",
     	"rpc-uri": "http://127.0.0.1:22444",
     	"rpc-user": "panda",
     	"rpc-psw": "suchpassword",
