@@ -1,0 +1,29 @@
+# cp ./eggtip.service /lib/systemd/system/eggtip.service
+# chmod 644 /lib/systemd/system/eggtip.service
+# Don't forget #!/usr/bin/python
+# chmod +x ./eggtip.py
+# systemctl daemon-reload
+# systemctl enable eggtip.service
+# systemctl start eggtip.service
+# Status:
+# systemctl status eggtip.service
+# To stop:
+# systemctl stop pandatip.service
+# To remove
+# systemctl disable eggtip.service
+
+[Unit]
+Description=NestEGGcoinTipBot
+After=syslog.target
+After=network.target
+After=nesteggcoind.service
+
+[Service]
+Type=simple
+ExecStart=/nesteggcoin/nesteggtip-telegram/NestEGGTip.py
+WorkingDirectory=/nesteggcoin/nesteggtip-telegram/
+Restart=always
+RestartSec=600
+
+[Install]
+WantedBy=multi-user.target
