@@ -1,0 +1,37 @@
+# assuming nesteggcoind binary is /nesteggcoin/daemon/nesteggcoind
+# assuming chmod+x /nesteggcoin/daemon/nesteggcoind
+#
+# Copy the service file:
+# cp ./nesteggcoind.service /lib/systemd/system/nesteggcoind.service
+# chmod 644 /lib/systemd/system/nesteggcoind.service
+#
+# Install service file:
+# systemctl daemon-reload
+# systemctl enable nesteggcoind.service
+# Run service:
+# systemctl start nesteggcoind.service
+# Check status:
+# systemctl status nesteggcoind.service
+# Stop service:
+# systemctl stop nesteggcoind.service
+#
+# Remove service:
+# systemctl disable nesteggcoind.service
+
+[Unit]
+Description=NestEGGcoin Deamon
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/nesteggcoin/data/pandacoind.pid
+ExecStart=/nesteggcoin/daemon/nesteggcoind -daemon -staking=0 -datadir=/nesteggcoin/data/ -pid=nesteggcoind.pid -conf=nesteggcoin.conf
+ExecStop=/nesteggcoin/daemon/nesteggcoind stop
+ExecReload=/nesteggcoin/daemon/nesteggcoind stop ; /bin/sleep 60 ; /nesteggcoin/daemon/nesteggcoind -daemon -staking=0 -datadir=/nesteggcoin/data/ -pid=nesteggcoind.pid -conf=nesteggcoincoin.conf
+RestartSec=300
+WorkingDirectory=/nesteggcoin/data/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
