@@ -1,4 +1,4 @@
-## PandaTip - Pandacoin tipbot for Telegram
+## PandaTip - NestEgg coin tipbot for Telegram
  
 ### Dependencies 
 
@@ -9,7 +9,7 @@
 * `pip install emoji`
 
 
-In order to run the tip-bot a Pandacoin-Core client is needed (pandacoind). 
+In order to run the tip-bot a NestEgg coin-Core client is needed (nesteggcoind). 
 
 ### Configuration file
 
@@ -40,9 +40,9 @@ Create a `config.json` **JSON** file and set up the following parameters:
   > `"spam_filter": [5, 60]` means that users cannot perform more than 5 actions per minute.
 
 
-### Pandacoin daemon configuration
+### NestEgg coin daemon configuration
 
-A `pandacoin.conf` file is needed in data directory.
+A `nesteggcoin.conf` file is needed in data directory.
 
 (sample)
 
